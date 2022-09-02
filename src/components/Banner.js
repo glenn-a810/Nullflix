@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import requests from '../api/requests'
-import instance from '../api/axios'
+import axios from '../api/axios'
 import './Banner.css'
 import styled from 'styled-components'
 
@@ -14,7 +14,7 @@ function Banner() {
 
   const fetchData = async () => {
     // 현재 상영중인 영화 정보를 가져오기(여러 영화)
-    const request = await instance.get(requests.fetchNowPlaying)
+    const request = await axios.get(requests.fetchNowPlaying)
 
     // 여러 영화 중 하나의 영화ID를 가져오기
     const movieId =
@@ -23,16 +23,19 @@ function Banner() {
       ].id
 
     // 특정 영화의 더 상세한 정보를 가져오기(영상 정보 포함)
-    const { data: movieDetail } = await instance.get(`movie/${movieId}`, {
+    const { data: movieDetail } = await axios.get(`movie/${movieId}`, {
       params: { append_to_response: 'videos' },
     })
 
     setMovie(movieDetail)
   }
 
-  // const truncate = async (str, n) => {
-  //   // return str?.length > n ? str.substring(0, n - 1) + '...' : str
-  //   console.log(movie.overview)
+  // optional chaning
+  // const truncate = (str, n) => {
+  //   if (movie.overview) {
+  //     return str?.length > n ? str.substring(0, n - 1) + '...' : str
+  //   }
+  //   // console.log(movie.overview)
   // }
 
   if (!isClicked) {
@@ -60,7 +63,9 @@ function Banner() {
             </button>
             <button className="banner__button info">More Information</button>
           </div>
-          {/*<h1 className="banner__description">{truncate(movie.overview, 100)}</h1>*/}
+          {/*<h1 className="banner__description">*/}
+          {/*  {truncate(movie.overview, 100)}*/}
+          {/*</h1>*/}
           <h1 className="banner__description">{movie.overview}</h1>
         </div>
         <div className="banner--fadeBottom" />
