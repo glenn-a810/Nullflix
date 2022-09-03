@@ -78,9 +78,10 @@ function Banner() {
           <Iframe
             width="640"
             height="360"
-            src="https://www.youtube.com/embed/F0B7HDiY-10"
-            // src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?constrols=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
-            title="IVE 아이브 'After LIKE' MV"
+            // src="https://www.youtube.com/embed/F0B7HDiY-10"
+            src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?constrols=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
+            // title="IVE 아이브 'After LIKE' MV"
+            title="Movie Preview"
             allow="autoplay; fullscreen"
             allowFullScreen
           ></Iframe>
