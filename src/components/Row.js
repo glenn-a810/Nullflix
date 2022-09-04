@@ -19,7 +19,14 @@ function Row({ isLargeRow, title, id, fetchURL }) {
       <h2>{title}</h2>
       <div className="slider">
         <div className="slider__arrow-left">
-          <span className="arrow">{'<'}</span>
+          <span
+            className="arrow"
+            onClick={() => {
+              document.getElementById(id).scrollLeft -= window.innerWidth - 80
+            }}
+          >
+            {'<'}
+          </span>
         </div>
         <div id={id} className="row__posters">
           {movies.map((movie) => (
@@ -34,7 +41,14 @@ function Row({ isLargeRow, title, id, fetchURL }) {
           ))}
         </div>
         <div className="slider__arrow-right">
-          <span className="arrow">{'>'}</span>
+          <span
+            className="arrow"
+            onClick={() => {
+              document.getElementById(id).scrollLeft += window.innerWidth + 80
+            }}
+          >
+            {'>'}
+          </span>
         </div>
       </div>
     </section>
