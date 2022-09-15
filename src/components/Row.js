@@ -33,27 +33,18 @@ function Row({ isLargeRow, title, id, fetchURL }) {
   return (
     <section className="row">
       <h2>{title}</h2>
-      {/*<div className="slider">*/}
-      {/*<div className="slider__arrow-left">*/}
-      {/*  <span*/}
-      {/*    className="arrow"*/}
-      {/*    onClick={() => {*/}
-      {/*      document.getElementById(id).scrollLeft -= window.innerWidth - 80*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    {'<'}*/}
-      {/*  </span>*/}
-      {/*</div>*/}
+
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
+        slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
         <div id={id} className="row__posters">
-          {movies.map((movie) => (
-            <SwiperSlide>
+          <SwiperSlide>
+            {movies.map((movie) => (
               <img
                 key={movie.id}
                 className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
@@ -63,21 +54,10 @@ function Row({ isLargeRow, title, id, fetchURL }) {
                 alt={movie.name}
                 onClick={() => handleClick(movie)}
               />
-            </SwiperSlide>
-          ))}
+            ))}
+          </SwiperSlide>
         </div>
       </Swiper>
-      {/*<div className="slider__arrow-right">*/}
-      {/*  <span*/}
-      {/*    className="arrow"*/}
-      {/*    onClick={() => {*/}
-      {/*      document.getElementById(id).scrollLeft += window.innerWidth + 80*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    {'>'}*/}
-      {/*  </span>*/}
-      {/*</div>*/}
-      {/*</div>*/}
 
       {modalOpen && (
         <MovieModel {...movieSelected} setModalOpen={setModalOpen} />
