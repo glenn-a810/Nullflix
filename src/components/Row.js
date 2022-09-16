@@ -43,8 +43,8 @@ function Row({ isLargeRow, title, id, fetchURL }) {
         scrollbar={{ draggable: true }}
       >
         <div id={id} className="row__posters">
-          <SwiperSlide>
-            {movies.map((movie) => (
+          {movies.map((movie) => (
+            <SwiperSlide>
               <img
                 key={movie.id}
                 className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
@@ -54,8 +54,8 @@ function Row({ isLargeRow, title, id, fetchURL }) {
                 alt={movie.name}
                 onClick={() => handleClick(movie)}
               />
-            ))}
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </div>
       </Swiper>
 
