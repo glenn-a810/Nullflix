@@ -36,11 +36,27 @@ function Row({ isLargeRow, title, id, fetchURL }) {
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
-        slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
+        loop={true}
+        breakpoints={{
+          1378: {
+            slidesPerView: 6,
+            slidesPerGroup: 6,
+          },
+          998: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+          625: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+          },
+          0: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+        }}
       >
         <div id={id} className="row__posters">
           {movies.map((movie) => (
