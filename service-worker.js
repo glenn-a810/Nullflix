@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Nullflix/precache-manifest.b949703d68e13c50b733cb7e87da77de.js"
+  "/Nullflix/precache-manifest.33567a7329ef659e124be0bd3967b6ef.js"
 );
 
 workbox.clientsClaim();
